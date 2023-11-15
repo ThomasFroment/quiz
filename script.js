@@ -84,6 +84,11 @@ const arr = [
         a: "Sans",
         l: 2,
     },
+    {
+        q: "Sir what can we do ?",
+        a: "easteregg",
+        l: 1,
+    }
 ];
 
 const levels = {
@@ -114,10 +119,17 @@ for (let i = 0; i < 4; i++) {
     question.innerHTML = object.q;
     wrapper.appendChild(question);
 
-    const awnser = document.createElement("div");
-    awnser.innerHTML = `✅ ${object.a}`;
-    awnser.toggleAttribute("hidden");
-    wrapper.appendChild(awnser);
+    if(object.a != "easteregg"){
+        const awnser = document.createElement("div");
+        awnser.innerHTML = `✅ ${object.a}`;
+        awnser.toggleAttribute("hidden");
+        wrapper.appendChild(awnser);
+    } else {
+        const awnser = document.createElement("img");
+        awnser.setAttribute("src", "https://media.tenor.com/x7YhM61cvC4AAAAC/there%27s-nothing-we-can-do.gif");
+        awnser.toggleAttribute("hidden");
+        wrapper.appendChild(awnser);
+    }
 }
 
 questions.addEventListener("click", (e) => {
