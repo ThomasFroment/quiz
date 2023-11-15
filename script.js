@@ -1,23 +1,88 @@
 const arr = [
     {
-        q: "Who was the first US president ?",
-        a: "George Washington",
-        l: 3,
+        q: "What is the chemical symbol for water?",
+        a: "H2O",
+        l: 1,
     },
     {
-        q: "What is the capital of France ?",
-        a: "Paris",
-        l: 3,
+        q: "What is the largest mammal in the world?",
+        a: "Blue whale",
+        l: 1,
     },
     {
-        q: "What game engine was used in Team Fortress 2 ?",
-        a: "Source Engine",
+        q: "What is the sum of angles in a triangle?",
+        a: "180°",
+        l: 1,
+    },
+    {
+        q: "What does the acronyme 'WWW' stand for?",
+        a: "World Wide Web",
+        l: 1,
+    },
+    {
+        q: "Who is known as the 'King of Pop'?",
+        a: "Michael Jackson",
+        l: 1,
+    },
+    {
+        q: "Who painted the famous artwork 'Starry Night'?",
+        a: "Vincent van Gogh",
+        l: 1,
+    },
+    {
+        q: "What is the process in which plants make their own food?",
+        a: "Photosynthesis",
         l: 2,
     },
     {
-        q: "What is the most popular programming language ?",
-        a: "JavaScript",
+        q: "What is the value of pi (π) to four decimal places?",
+        a: "3.1415",
+        l: 2,
+    },
+    {
+        q: "What is the programming language represented by the acronym 'HTML'?",
+        a: "HyperText Markup Language",
+        l: 2,
+    },
+    {
+        q: "What is the smallest country in the world by land area?",
+        a: "Vatican City",
+        l: 3,
+    },
+    {
+        q: "Who was the first emperor of China?",
+        a: "Qin Shi Huang",
+        l: 3,
+    },
+    {
+        q: "Who wrote the poem 'The Iliad'?",
+        a: "Homer",
+        l: 3,
+    },
+    {
+        q: "What is one of the most famous Napoleon's quotes?",
+        a: "'Never interrupt your enemy when he is making a mistake'",
+        l: 3,
+    },
+    {
+        q: "Which game geatures a protagonist named Geralt of Rivia?",
+        a: "The Witcher 3: Wild Hunt",
+        l: 2,
+    },
+    {
+        q: "What is the name of the protagonist the the game 'Dark Souls'?",
+        a: "The Chosen Undead",
+        l: 3,
+    },
+    {
+        q: "What is the most popular sandbox game?",
+        a: "Minecraft",
         l: 1,
+    },
+    {
+        q: "In Undertale, what is the name of the character who serves as a judge?",
+        a: "Sans",
+        l: 2,
     },
 ];
 
@@ -29,8 +94,8 @@ const levels = {
 
 const questions = document.getElementById("questions");
 
-if(arr.length < 4) throw new Error("Not enough questions");
-for(let i = 0; i < 4; i++) {
+if (arr.length < 4) throw new Error("Not enough questions");
+for (let i = 0; i < 4; i++) {
     const idx = Math.floor(Math.random() * arr.length);
     const object = arr[idx];
     // remove the question from the array so it won't be picked again
@@ -48,7 +113,7 @@ for(let i = 0; i < 4; i++) {
     const question = document.createElement("div");
     question.innerHTML = object.q;
     wrapper.appendChild(question);
-    
+
     const awnser = document.createElement("div");
     awnser.innerHTML = `✅ ${object.a}`;
     awnser.toggleAttribute("hidden");
@@ -69,10 +134,13 @@ searchbar.addEventListener("keyup", (e) => {
     questions.forEach((question) => {
         const questionText = question.children[1].innerHTML;
         const level = question.children[0].innerHTML;
-        if (questionText.toLowerCase().includes(value.toLowerCase()) || value == level) {
+        if (
+            questionText.toLowerCase().includes(value.toLowerCase()) ||
+            value == level
+        ) {
             question.style.display = "block";
         } else {
             question.style.display = "none";
         }
     });
-})
+});
