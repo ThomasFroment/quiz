@@ -2,32 +2,32 @@ const arr = [
     {
         q: "What is the chemical symbol for water?",
         a: "H2O",
-        l: 1,
+        l: 3,
     },
     {
         q: "What is the largest mammal in the world?",
         a: "Blue whale",
-        l: 1,
+        l: 3,
     },
     {
         q: "What is the sum of angles in a triangle?",
         a: "180°",
-        l: 1,
+        l: 3,
     },
     {
         q: "What does the acronyme 'WWW' stand for?",
         a: "World Wide Web",
-        l: 1,
+        l: 3,
     },
     {
         q: "Who is known as the 'King of Pop'?",
         a: "Michael Jackson",
-        l: 1,
+        l: 3,
     },
     {
         q: "Who painted the famous artwork 'Starry Night'?",
         a: "Vincent van Gogh",
-        l: 1,
+        l: 3,
     },
     {
         q: "What is the process in which plants make their own food?",
@@ -47,22 +47,22 @@ const arr = [
     {
         q: "What is the smallest country in the world by land area?",
         a: "Vatican City",
-        l: 3,
+        l: 1,
     },
     {
         q: "Who was the first emperor of China?",
         a: "Qin Shi Huang",
-        l: 3,
+        l: 1,
     },
     {
         q: "Who wrote the poem 'The Iliad'?",
         a: "Homer",
-        l: 3,
+        l: 1,
     },
     {
         q: "What is one of the most famous Napoleon's quotes?",
         a: "'Never interrupt your enemy when he is making a mistake'",
-        l: 3,
+        l: 1,
     },
     {
         q: "Which game geatures a protagonist named Geralt of Rivia?",
@@ -72,12 +72,12 @@ const arr = [
     {
         q: "What is the name of the protagonist the the game 'Dark Souls'?",
         a: "The Chosen Undead",
-        l: 3,
+        l: 1,
     },
     {
         q: "What is the most popular sandbox game?",
         a: "Minecraft",
-        l: 1,
+        l: 3,
     },
     {
         q: "In Undertale, what is the name of the character who serves as a judge?",
