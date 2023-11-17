@@ -88,7 +88,7 @@ const arr = [
         q: "Sir what can we do ?",
         a: "easteregg",
         l: 1,
-    }
+    },
 ];
 
 const levels = {
@@ -97,52 +97,54 @@ const levels = {
     3: "🥉",
 };
 
-const questions = document.getElementById("questions");
+const quizELEMENT = document.getElementById("quiz");
+const questions = [];
 
 if (arr.length < 4) throw new Error("Not enough questions");
 for (let i = 0; i < 4; i++) {
     const idx = Math.floor(Math.random() * arr.length);
     const object = arr[idx];
-    // remove the question from the array so it won't be picked again
     arr.splice(idx, 1);
 
-    const wrapper = document.createElement("div");
-    wrapper.classList.add("question");
-    questions.appendChild(wrapper);
+    const wrapperELEMENT = document.createElement("div");
+    wrapperELEMENT.classList.add("wrapper");
+    quizELEMENT.appendChild(wrapperELEMENT);
+    questions.push(wrapperELEMENT);
 
-    const level = document.createElement("div");
-    level.innerHTML = levels[object.l];
-    level.classList.add("level");
-    wrapper.appendChild(level);
+    const levelELEMENT = document.createElement("div");
+    levelELEMENT.innerHTML = levels[object.l];
+    levelELEMENT.classList.add("level");
+    wrapperELEMENT.appendChild(levelELEMENT);
 
-    const question = document.createElement("div");
-    question.innerHTML = object.q;
-    wrapper.appendChild(question);
+    const questionELEMENT = document.createElement("div");
+    questionELEMENT.innerHTML = object.q;
+    wrapperELEMENT.appendChild(questionELEMENT);
 
-    if(object.a != "easteregg"){
-        const awnser = document.createElement("div");
-        awnser.innerHTML = `✅ ${object.a}`;
-        awnser.toggleAttribute("hidden");
-        wrapper.appendChild(awnser);
+    if (object.a != "easteregg") {
+        const awnserELEMENT = document.createElement("div");
+        awnserELEMENT.innerHTML = `✅ ${object.a}`;
+        awnserELEMENT.toggleAttribute("hidden");
+        wrapperELEMENT.appendChild(awnserELEMENT);
     } else {
-        const awnser = document.createElement("img");
-        awnser.setAttribute("src", "https://media.tenor.com/x7YhM61cvC4AAAAC/there%27s-nothing-we-can-do.gif");
-        awnser.toggleAttribute("hidden");
-        wrapper.appendChild(awnser);
+        const awnserELEMENT = document.createElement("img");
+        awnserELEMENT.setAttribute(
+            "src",
+            "https://media.tenor.com/x7YhM61cvC4AAAAC/there%27s-nothing-we-can-do.gif"
+        );
+        awnserELEMENT.toggleAttribute("hidden");
+        wrapperELEMENT.appendChild(awnserELEMENT);
     }
 }
 
-questions.addEventListener("click", (e) => {
+quizELEMENT.addEventListener("click", (e) => {
     if (e.target.classList == "level") {
         e.target.parentElement.children[2].toggleAttribute("hidden");
     }
 });
 
-const searchbar = document.getElementById("searchbar");
+const searchbarELEMENT = document.getElementById("searchbar");
 searchbar.addEventListener("keyup", (e) => {
     const value = e.target.value;
-    const questions = document.querySelectorAll(".question");
-    // keeping the 4 questions node into an array when the page loads might be better
     questions.forEach((question) => {
         const questionText = question.children[1].innerHTML;
         const level = question.children[0].innerHTML;
